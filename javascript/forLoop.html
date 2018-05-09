@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <title>For Loops</title>
+
+    <meta charset="utf-8" />    
+   
+    <!-- tells mobile not to lie about their true width-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--my javascript -->
+    
+</head>
+
+<body>
+<!--    //This is to be used when the number of iterations is KNOWN-->
+    <script>
+//    for(initialisation; test condition;iteration statement){
+//        statement to be executed if the test condition is true
+//    }
+        
+         var cars;
+         console.log("beginning of the loop");
+
+        //initialization is where we set a value to our var to be executed before the loop starts
+
+        // test condition will test if the condition is true. If true run the statement otherwise stop
+        for(cars=0;cars<10;cars++){
+            console.log("current number of cars "+cars);
+        }
+
+        console.log("loop has stopped");
+        
+//        while(expression){
+//              //statement to be executed if true;
+//        }
+        
+        var houses = 0;
+        while(houses < 10){
+            console.log("current number of houses "+houses);
+            houses++;
+        }
+        
+        console.log("Enough houses have been bought!");
+                
+    </script>
+    
+    <button id="button1">DisplayNumbers</button>
+    <button id="button2">checkEvenOrOdd</button>       
+    
+    <!--Display our output -->
+    <div id="output"></div>
+            
+</body>
+    <script src="resources/script/forLoop.js"></script>
+</html>
+
