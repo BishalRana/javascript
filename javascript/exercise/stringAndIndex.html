@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>Javascript locate string letter using Slice</title>
+	
+</head>
+<body>
+	<h1>Javascript Strings and Index</h1>
+	<h2>Locate string letter using Slice</h2>
+	<span>Please enter a string: </span><input id="lab32input1"/>
+	<span>Please enter an index number to search the string: </span><input id="lab32input2"/>
+	<input type="button" value="Slice string" id="lab32"/>
+	<span>String faction: </span><p id="lab32result"></p>
+    
+    <script>
+        
+        document.getElementById("lab32").addEventListener("click",letterLocation);
+        
+        function letterLocation(){            
+            var enteredString = document.getElementById("lab32input1").value;            
+            var enteredIndex = document.getElementById("lab32input2").value;                                
+            document.getElementById("lab32result").innerHTML = enteredString.slice(enteredIndex-1,enteredIndex);            
+        }
+	   
+    </script>
+</body>
+</html>
