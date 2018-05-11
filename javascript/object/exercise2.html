@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        
+        <p id="display"></p>
+        <script>
+            
+        var student = {
+            firstName : "Manish",
+            lastName : "Shrestha",
+            score : {
+                Maths : 95,
+                English : 90,
+                Sceince : 85
+            }
+        } 
+        
+        console.log("Student Name : "+student.firstName+" "+student.lastName + "\n"+
+                   "Scores\n"+" Maths : "+student.score.Maths+" \n "+
+                   "English : "+student.score.Sceince);
+            
+        document.getElementById("display").innerHTML = student.firstName+student.lastName+student.score.English;
+        </script>
+    </body>
+</html>

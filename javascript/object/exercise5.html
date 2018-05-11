@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>5.Create an object within an object(nested) and display a nested
+            object property on the webpage
+        </p>
+        <p id="display"></p>
+        <script>
+            
+        var student = {
+            firstName : "Manish",
+            lastName : "Shrestha",
+            score : {
+                Maths : 95,
+                English : 90,
+                Sceince : 85
+            }
+        } 
+                
+            
+        document.getElementById("display").innerHTML = student.score.English;
+        </script>
+    </body>
+</html>

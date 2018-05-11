@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Object statement</title>
+    </head>        
+    <body>
+      <script>
+            <!-- ways to declare  object--->
+          
+          var student = new Object();
+          
+          student["firstName"]  = "Garry";
+          student["surname"]    = "Barry";
+         
+          //creating a var to hold the firstName
+          var firstNamedProperty = "firstName";
+          
+          console.log(student);
+          console.log(student[firstNamedProperty]);
+          
+          // the better practice for declaring objects
+          
+          var student1 = {
+            firstName : "Garry",
+            secondName : "Trotter",
+              
+            address : {//nested objects
+                street : "150 Minories",
+                city : "London",
+                postcode : "EC1 5T2" 
+            }  
+          }
+          
+          console.log(student1.firstName);
+          console.log(student1.secondName);
+          
+          //Return our object to the console
+          console.log(student1);
+          console.log(student1.address.postcode);
+          
+          function greeting(s){//create a function that returns the name fo the student.
+              console.log("Good Morning "+s.firstName);
+          }
+          
+          greeting(student1);
+          
+          //adding information to our object
+          greeting({firstName: "Lucy",secondName: "Sam"});//parse our own object
+          
+          console.log(student1);
+          
+          //
+          
+          var person = { //declaring an object
+              firstName : "John",
+              surName : "Tom",
+              
+              address : {
+                  street : "100 Minories",
+                  city : "New York",
+                  zipCode : "0525"
+              }//javascript will treat everything within {} as one line
+          };
+          
+          person.address2 = {
+              street : "01 Monories",
+              city : "New Jersey",
+              zipCode : "0000"
+          }
+          
+          console.log(person.address.street);
+          
+          //function are objects
+          
+          function theEnd(){
+              console.log("bye");
+          }
+          
+          theEnd.language = "English";
+          console.log(theEnd.language);
+          
+          var shoeCollection = {
+              brand : "Nike",
+              model : "Air Force Ones",
+              price : "95",
+              created : 100,
+              sold : 36,
+              availability : function(){
+                    return shoeCollection.created - shoeCollection.sold;
+                } 
+          }
+          
+          console.log("Left Behind "+shoeCollection.availability());
+        </script>
+    </body>
+    
+</html>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>6.Build an object constructor. Create 2 instances of the object.
+            Display the properties of the object instances on the webpage
+        </p>
+        <p id="display"></p>
+        <script>
+          
+            function student(firstName,lastName){
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }    
+            var student1 = new student("Manish","Shrestha") ;
+            var student2 = new student("Kusal","Shrestha");     
+            
+            student1.fullName = "hihello";
+
+            document.getElementById("display").innerHTML = student1.fullName+" "+student2.firstName;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>Create an object with properties and a method .Access the method</p>
+        <p id="display"></p>
+        <script>
+            
+        var student = {
+            firstName : "Manish",
+            lastName : "Shrestha",
+            score : {
+                Maths : 95,
+                English : 90,
+                Sceince : 85
+            },
+            
+            percentage : function(){
+                
+                return ((this.score.English + this.score.Sceince + this.score.Maths)/300*100);
+            }
+        }                           
+        
+            
+        document.getElementById("display").innerHTML = "Average Percentage "+student.percentage() + "%";
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>
+            Create an object with 3 properties: firstname,surname,fullname.For 
+            the fullname value create a method which returns the firstname and surname
+            and display on the webpage
+        </p>
+        <p id="display"></p>
+        <script>
+            
+            var student = {
+                firstName : "Manish",
+                surName : "Shrestha",
+                fullName : function(){
+                    return this.firstName+" "+this.surName;
+                }
+            }                                   
+
+            document.getElementById("display").innerHTML = student.fullName();
+        </script>
+    </body>
+</html>
