@@ -35,31 +35,41 @@
                 this.question = question;
                 this.answer =  answer;
             }
-            
-            var quizs = [];
-            quizs[0] = new quiz("How many oscars did the Titanic movie got?","Eleven");
-            quizs[1] = new quiz("What is the name of the prison in the film The Rock?","Alcatraz");
-            quizs[2] = new quiz("What is the name of the little dragon in the animated movie Mulan?","Mushu");
-            quizs[3] = new quiz("What is the profession of Popeye?","Seaman");
-            quizs[4] = new quiz("What is the name of green monster in Avenger?","Hulk");
-            
-            var quizNumber;
-            var displayTheQuestions="";
-            
-            for(quizNumber = 0;quizNumber < quizs.length;quizNumber++){            
-                displayTheQuestions = displayTheQuestions +"<div>Q."+(quizNumber+1)+quizs[quizNumber].question+
+
+            //use of function closure to avoid global variable and use of private variable (quizs array).
+            var quizsCollection =(function(){
+                    var quizs = [];   
+                    quizs[0] = new quiz("How many oscars did the Titanic movie got?","Eleven");
+                    quizs[1] = new quiz("What is the name of the prison in the film The Rock?","Alcatraz");
+                    quizs[2] = new quiz("What is the name of the little dragon in the animated movie Mulan?","Mushu");
+                    quizs[3] = new quiz("What is the profession of Popeye?","Seaman");
+                    quizs[4] = new quiz("What is the name of green monster in Avenger?","Hulk");
+
+                    var quizNumber;
+                    var displayTheQuestions="";
+
+                    for(quizNumber = 0;quizNumber < quizs.length;quizNumber++){            
+                        displayTheQuestions = displayTheQuestions +"<div>Q."+(quizNumber+1)+quizs[quizNumber].question+
                                     "<br>Your answer"+(quizNumber+1)+"<input required />"+"</div><br/>";
-            }
+                     }
             
-            document.getElementById("display").innerHTML = displayTheQuestions;
+                    document.getElementById("display").innerHTML = displayTheQuestions;
+                    
+                    document.getElementById("submit").addEventListener("click",quizResult);
+                    
+                    return function (){
+                        return quizs;
+                    }
+            }());
             
-            document.getElementById("submit").addEventListener("click",quizResult);
             
             function quizResult(){
                 
+                var quizs = quizsCollection();
                 var answers = document.getElementsByTagName("input");
                 var answerNumber;
                 var score = 0;
+                
                 
                 for(answerNumber = 0 ;answerNumber<answers.length;answerNumber++){
                   if(answers[answerNumber].value.trim() == ""){
@@ -69,12 +79,10 @@
                 }
                
                 for(answerNumber = 0 ;answerNumber<answers.length;answerNumber++){                                        
-                    var res =  quizs.findIndex(item => answers[answerNumber].value.toLocaleLowerCase().trim() ===  quizs[answerNumber].answer.toLocaleLowerCase());
                     quizs[answerNumber].useranswer = quizs[answerNumber].answer;
                     answers[answerNumber].classList.remove("correct");
                     answers[answerNumber].classList.remove("incorrect");
-                    if(res !=-1){                       
-                       quizs[answerNumber].result = "correct";
+                    if(answers[answerNumber].value.toLocaleLowerCase().trim() ===  quizs[answerNumber].answer.toLocaleLowerCase()){         quizs[answerNumber].result = "correct";
                         answers[answerNumber].classList.add("correct");                   
                         score++;
                     }else{
